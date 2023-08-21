@@ -15,7 +15,7 @@ Have tried to keep the UI as similiar as that of Twitter. Is not mobile responsi
 
     1. Clone this repository to your local machine, create virtual environment using `python3 -m venv .venv`
     2. Activate the virtual environment using - `source .venv/bin/activate`
-    3. Make sure you have the right python version setup using Ubuntu. Install the dependencies using - `pip    3 install -r requirements.txt`
+    3. Make sure you have the right python version setup using Ubuntu. Install the dependencies using - `pip3 install -r requirements.txt`
     4. Start the server running @localhost:5000 using - `python3 app.py`
     5. To go back to terminal after running the above script, use `CTRL + C`
 
