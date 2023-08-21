@@ -1,4 +1,4 @@
-# X-Clone
+# X-Clone :dolphin:
 
 Made using the python framework Flask, this is a frontend + backend clone of twitter. Of course, it does not have ALL the functionalities Twitter has, but it can do the functions that are quintescential to Twitter, namely:
 
