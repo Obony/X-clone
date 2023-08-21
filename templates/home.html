@@ -1,10 +1,234 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title> Dashboard </title>
-	</head>
-	<body>
-		<h2> Congratulations, You are logged in and can view twets </h2>
-		<a href="{{ url_for('logout') }}" > Press to logout </a>
-	</body>
+<html>
+  <head>
+    <title>Dashboard</title>	
+    <link rel="stylesheet" href="/static/global.css" />   
+    <link rel="stylesheet" href="/static/styles/layout.css" /> 
+    <link rel="stylesheet" href="/static/styles/brand.css" />
+    <link rel="stylesheet" href="/static/styles/sidebar-menu.css" />
+    <link rel="stylesheet" href="/static/styles/trends-for-you.css" />	
+    <link rel="stylesheet" href="/static/styles/tweet.css" />                  
+  </head>
+  <body>
+    <h2> Congratulations, Tweet Fun Day! </h2>
+	<a href="{{ url_for('logout') }}" > Press to logout </a>
+    <br/> <br/>
+    <div class="layout">
+        <div class="layout__left-sidebar">
+			<img src="/static/images/twitter.png" class="brand"> <br/>           
+            <div class="sidebar-menu">
+				<div class="sidebar-menu__item sidebar-menu__item--active">
+					<img src="/static/images/home.png" class="sidebar-menu__item-icon" />
+					Home
+				</div>
+				<div class="sidebar-menu__item sidebar-menu__item--active">
+					<img src="/static/images/explore.png" class="sidebar-menu__item-icon" />
+					Explore
+				</div>
+				<div class="sidebar-menu__item sidebar-menu__item--active">
+					<img src="/static/images/notifications.png" class="sidebar-menu__item-icon" />
+					Notifications
+				</div>
+				<div class="sidebar-menu__item sidebar-menu__item--active">
+					<img src="/static/images/messages.png" class="sidebar-menu__item-icon" />
+					Messages
+				</div>
+				<div class="sidebar-menu__item sidebar-menu__item--active">
+					<img src="/static/images/profile.png" class="sidebar-menu__item-icon" />
+					Profile
+				</div>
+				<div class="sidebar-menu__item sidebar-menu__item--active">
+					<img src="/static/images/more.png" class="sidebar-menu__item-icon" />
+					More
+				</div>
+			</div>
+        </div>
+        <div class="layout__main">         
+          <div class="tweet">
+            <img class="tweet__author-logo" src="/static/images/faith.jpg" />
+            <div class="tweet__main">
+              <div class="tweet__header">
+                <div class="tweet__author-name">
+                  faith
+                </div>
+                <div class="tweet__author-slug">
+                  @faithoz
+                </div>
+                <div class="tweet__publish-time">
+                  2d
+                </div>
+              </div>
+              <div class="tweet__content">
+                Thank you, welcoming myself... <br/> 
+                <br/>
+                <iframe width="560" height="315" src="/static/images/jericho.mp4" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div> 
+          <div class="tweet">
+            <img class="tweet__author-logo" src="/static/images/apple.png" />
+            <div class="tweet__main">
+              <div class="tweet__header">
+                <div class="tweet__author-name">
+                  AppleStore
+                </div>
+                <div class="tweet__author-slug">
+                  @applestorekenya
+                </div>
+                <div class="tweet__publish-time">
+                  6h
+                </div>
+              </div>
+              <div class="tweet__content">
+                Get yourself the latest Iphone, airpods, ipads, imacs. Be the leader in tech as you are supposed to be, ahoy!!
+              </div>
+            </div>
+          </div>
+          <div class="tweet">
+            <img class="tweet__author-logo" src="/static/images/abiollaghcat.png" />
+            <div class="tweet__main">
+              <div class="tweet__header">
+                <div class="tweet__author-name">
+                  abiolla
+                </div>
+                <div class="tweet__author-slug">
+                  @abiollatheboss
+                </div>
+                <div class="tweet__publish-time">
+                  3min
+                </div>
+              </div>
+              <div class="tweet__content">
+                On this day today, 9th-August, Singapore became an independent nation after being expelled from Malaysia.
+                Malaysia's parliament had voted 126-0 in favour of the expulsion of Singapore from its federation.
+                <img class="tweet__image" src="/static/images/flag.jpg" />
+              </div>
+            </div>
+          </div>
+          <div class="tweet">
+            <img class="tweet__author-logo" src="/static/images/abiollaghcat.png" />
+            <div class="tweet__main">
+              <div class="tweet__header">
+                <div class="tweet__author-name">
+                  Elixir Digest
+                </div>
+                <div class="tweet__author-slug">
+                  @elixirdigest
+                </div>
+                <div class="tweet__publish-time">
+                  4d
+                </div>
+              </div>
+              <div class="tweet__content">
+                Yet Another Guide To Build a JSON API with Phoenix 1.5 shared in
+                the latest Elixir Digest
+                <a href="https://elixirdigest.net/digests/276"
+                  >https://elixirdigest.net/digests/276</a
+                >
+                @_tamas_soos #myelixirstatus #elixirlang #phoenixframework
+              </div>
+            </div>
+          </div>
+          <div class="tweet">
+            <img class="tweet__author-logo" src="/static/images/faith.jpg" />
+            <div class="tweet__main">
+              <div class="tweet__header">
+                <div class="tweet__author-name">
+                  faith
+                </div>
+                <div class="tweet__author-slug">
+                  @faithoz
+                </div>
+                <div class="tweet__publish-time">
+                  2d
+                </div>
+              </div>
+              <div class="tweet__content">
+                Thank you
+                
+              </div>
+            </div>
+          </div>
+          <div class="tweet">
+            <img class="tweet__author-logo" src="/static/images/faith.jpg" />
+            <div class="tweet__main">
+              <div class="tweet__header">
+                <div class="tweet__author-name">
+                  faith
+                </div>
+                <div class="tweet__author-slug">
+                  @faithoz
+                </div>
+                <div class="tweet__publish-time">
+                  2d
+                </div>
+              </div>
+              <div class="tweet__content">
+                Merci beaucoup
+              </div>
+            </div>
+          </div>
+          <div class="tweet">
+            <img class="tweet__author-logo" src="/static/images/faith.jpg" />
+            <div class="tweet__main">
+              <div class="tweet__header">
+                <div class="tweet__author-name">
+                  faith
+                </div>
+                <div class="tweet__author-slug">
+                  @faithoz
+                </div>
+                <div class="tweet__publish-time">
+                  2d
+                </div>
+              </div>
+              <div class="tweet__content">
+                Wow, Lol!
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="layout__right-sidebar-container">
+            <div class="layout__right-sidebar">
+                <div class="trends-for-you">
+                  <div class="trends-for-you__block">
+                    <div class="trends-for-you__heading">
+                      Trends for You
+                    </div>
+                  </div>
+                  <div class="trends-for-you__block">
+                    <div class="trends-for-you__meta-information">
+                      Trending in USA
+                    </div>
+                    <div class="trends-for-you__trend-name">
+                      #Alabamaboat
+                    </div>
+                    <div class="trends-for-you__meta-information">
+                      155k Tweets
+                    </div>
+                  </div>
+                  <div class="trends-for-you__block">
+                    <div class="trends-for-you__meta-information">
+                      Trending in USA
+                    </div>
+                    <div class="trends-for-you__trend-name">
+                      #iPhone22
+                    </div>                    
+                  </div>
+                  <div class="trends-for-you__block">
+                    <div class="trends-for-you__meta-information">
+                      Trending - Trending
+                    </div>
+                    <div class="trends-for-you__trend-name">
+                      #Formula1
+                    </div>
+                    <div class="trends-for-you__meta-information">
+                      1.46M Tweets
+                    </div>
+                  </div>
+                </div>                
+            </div>
+        </div>        
+    </div>    
+  </body>
 </html>
