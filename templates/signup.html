@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> Sign up </title>
+	</head>
+	<body>
+		<h1> Sign up! </h1>
+		<form method="POST", action="">
+			{{ form.hidden_tag() }}
+			{{ form.username }}
+			{{ form.email }}
+			{{ form.password }}
+			{{ form.submit }}
+		</form>
+		<a href="{{ url_for('login') }}"> Already have an account! Log in </a>
+	</body>
+</html>

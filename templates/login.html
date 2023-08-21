@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> Login </title>
+		<style>
+
+		  body {
+		     font-family: Arial, sans-serif;
+		     background-color: #f0f0f0;
+		     margin-top: 90px;
+		     padding: 0;
+		  }
+		  .container {
+		     margin: 0 auto;
+		     display: flex;i
+		     flex-direction: column;
+		     padding: 40px;
+		     border: 1px solid #ddd;
+		     border-radius: 5px;
+		     width: 60vh;
+		     height: 70vh;
+		     justify-content: center;
+		     align-items: center;
+		     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		  }
+		  .content {
+		     width: 100%;
+		     height: 40px;
+		     margin-bottom: 50px;
+		  }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+		  <form method="POST", action="">
+			<div class="content">
+			{{ form.hidden_tag() }}
+			{{ form.username }}
+			</div>
+			<div class="content">
+			{{ form.password }}
+			</div>
+			<div class="content">
+			{{ form.submit }}
+			</div>
+		  <a href="{{ url_for('signup') }}"> Don't have an account! Sign up </a>
+		  </form>
+		</div>
+	</body>
+</html>
