@@ -23,3 +23,10 @@ Have tried to keep the UI as similiar as that of Twitter. Is not mobile responsi
     4. Start the server running @localhost:5000 using - `python3 app.py`
     5. To go back to terminal after running the above script, use `CTRL + C`
 
+## AUTHORS##
+
+# This file lists all individuals having contributed content to the repository.
+
+	1. Faith Nyaberi <faithobonyo@proton.me>
+
+	2. Abiollagh James <abiollajames@protonmail.com>
