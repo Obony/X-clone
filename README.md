@@ -9,7 +9,11 @@ Made using the python framework Flask, this is a frontend + backend clone of twi
 
 Have tried to keep the UI as similiar as that of Twitter. Is not mobile responsive yet so is better to view it in landscape on laptop or desktop. The reason this hasn't been done yet is that this project's primary purpose was not to create a fronend site but rather create a fully functional generic social media website
 
+![Login page] <img width="948" alt="loginPage" src="https://github.com/Obony/X-Clone/assets/117737538/1af7d448-7a76-40f0-8f6e-c7d59b538141">
 
+![signup page] <img width="952" alt="signupPage" src="https://github.com/Obony/X-Clone/assets/117737538/ee786b33-0feb-40b4-84c4-a396391f46f4">
+
+![home page] <img width="953" alt="homePage" src="https://github.com/Obony/X-Clone/assets/117737538/12919f60-ea62-4971-a713-6e86364f77d1">
 
 ### To run on your machine
 
