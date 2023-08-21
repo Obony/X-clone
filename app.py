@@ -1,13 +1,14 @@
 #!/usr/bin/python3
-
+import os
+from flask import send_from_directory
 from flask import Flask, render_template, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
+from flask_login import UserMixin, login_user
+from flask_login import LoginManager, login_required, logout_user
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
-#from app.models import User
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
@@ -21,11 +22,12 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
 
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-""" sub class of FlaskForm used for validation of form fields """
+
 class SignupForm(FlaskForm):
     username = StringField(validators=[InputRequired(), Length(
         min=4, max=20)], render_kw={"placeholder": "username"})
@@ -40,7 +42,7 @@ class SignupForm(FlaskForm):
         if existing_username:
             raise ValidationError("Username already exists!")
 
-""" sub class of FlaskForm used for validation of form fields """
+
 class LoginForm(FlaskForm):
     username = StringField(validators=[InputRequired(), Length(
         min=4, max=20)], render_kw={"placeholder": "username"})
@@ -76,6 +78,15 @@ def login():
 @login_required
 def home():
     return render_template("home.html")
+
+
+@app.route('/favicon.ico')
+@login_required
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico',
+                               mimetype='image/vnd.microsoft.icon')
+
 
 @app.route("/logout", methods=['GET', 'POST'])
 @login_required
