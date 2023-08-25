@@ -141,7 +141,12 @@ def new_post():
 @app.route("/profile")
 @login_required
 def profile():
-    return render_template('profile.html')
+    user_data = {
+        'name': 'Your name',
+        'bio': 'Bio goes here.',
+        'profile_pic': '/static/images/...'  # Path to your profile picture
+    }
+    return render_template('profile.html', user_data=user_data)
 
 
 if __name__ == "__main__":
