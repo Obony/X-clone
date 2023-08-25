@@ -31,17 +31,21 @@
 					Notifications
 				</div>
 				<div class="sidebar-menu__item sidebar-menu__item--active">
-					<img src="/static/images/messages.png" class="sidebar-menu__item-icon" />
-					Messages
-				</div>
-				<div class="sidebar-menu__item sidebar-menu__item--active">
-					<img src="/static/images/profile.png" class="sidebar-menu__item-icon" />
-					Profile
+          <a href="{{ url_for('profile') }}">
+            <img src="/static/images/profile.png" class="sidebar-menu__item-icon" />
+            <span>Profile</span>
+          </a>
 				</div>
 				<div class="sidebar-menu__item sidebar-menu__item--active">
           <a href="{{ url_for('new_post') }}">
             <img src="/static/images/more.png" class="sidebar-menu__item-icon" />
             <span>Tweet</span>
+          </a>
+				</div>
+        <div class="sidebar-menu__item sidebar-menu__item--active">
+          <a href="{{ url_for('logout') }}">
+            <img src="/static/images/notifications.png" class="sidebar-menu__item-icon" />
+            <span>Logout</span>
           </a>
 				</div>
 			</div>
