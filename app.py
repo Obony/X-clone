@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 import os
+from datetime import datetime
 from flask import send_from_directory
 from flask import Flask, render_template, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user
-from flask_login import LoginManager, login_required, logout_user
+from flask_login import LoginManager, login_required, current_user, logout_user
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, TextAreaField
 from wtforms.validators import InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
 
@@ -28,6 +29,7 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
+""" Form/validations section """
 class SignupForm(FlaskForm):
     username = StringField(validators=[InputRequired(), Length(
         min=4, max=20)], render_kw={"placeholder": "username"})
@@ -50,13 +52,27 @@ class LoginForm(FlaskForm):
         min=4, max=20)], render_kw={"placeholder": "password"})
     submit = SubmitField("Log in")
 
+class PostForm(FlaskForm):
+    content = TextAreaField('Content', validators=[InputRequired()], render_kw={"placeholder": "Write here..."})
+    submit = SubmitField('Post')
 
+
+""" Database section """
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(250), nullable=False, unique=True)
     password = db.Column(db.String(250), nullable=False)
+    image_file = db.Column(db.String(20), nullable=False, default='abiollaghcat.png')
+    posts = db.relationship('Post', backref='author', lazy=True)
+
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    content = db.Column(db.Text, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
 
+""" Routes Section """
 @app.route("/")
 def go_home():
     return render_template("index.html")
@@ -109,6 +125,17 @@ def signup():
         return redirect(url_for('login'))
 
     return render_template("signup.html", form=form)
+
+@app.route("/post/new", methods=['GET', 'POST'])
+@login_required
+def new_post():
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(content=form.content.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        return redirect(url_for('home'))
+    return render_template('create_post.html', title='New Post', form=form)
 
 
 if __name__ == "__main__":
