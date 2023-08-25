@@ -10,32 +10,26 @@
 		     margin-top: 90px;
 		     padding: 0;
 		  }
-		  .container {
-			background-color: #1DA1F2;
-		     margin: 0 auto;
-		     display: flex;
-		     flex-direction: column;
-		     padding: 40px;
-		     border: 1px solid #ddd;
-		     border-radius: 5px;
-		     width: 60vh;
-		     height: 70vh;
-		     justify-content: center;
-		     align-items: center;
-		     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);			 
-		  }
-		
-		</style>
+          #textarea textarea {
+            width: 700px;
+            height: 300px;
+            padding: 10px;
+            border: 1px solid olive;
+            font-size: 16px;
+        }
+	</style>
 	</head>
 	<body>
-		<div class="container">
+		<div>
 		  <form method="POST", action="">
-			<div class="content">
-			{{ form.hidden_tag() }}
-			{{ form.content }}
-			</div>
-			<div class="content">
-			{{ form.submit }}
+			<div>
+			    {{ form.hidden_tag() }}
+            </div>
+            <div id="textarea">
+                {{ form.content }}
+            </div>
+			<div id="postbtn">
+			    {{ form.submit }}
 			</div>
 		  </form>
 		</div>

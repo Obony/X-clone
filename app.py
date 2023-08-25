@@ -53,7 +53,7 @@ class LoginForm(FlaskForm):
     submit = SubmitField("Log in")
 
 class PostForm(FlaskForm):
-    content = TextAreaField('Content', validators=[InputRequired()], render_kw={"placeholder": "Write here..."})
+    content = TextAreaField('Content', validators=[InputRequired()], render_kw={"placeholder": "Write your tweet here..."})
     submit = SubmitField('Post')
 
 
