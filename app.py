@@ -137,6 +137,11 @@ def new_post():
         return redirect(url_for('home'))
     return render_template('create_post.html', title='New Post', form=form)
 
+@app.route("/profile")
+@login_required
+def profile():
+    return render_template('profile.html')
+
 
 if __name__ == "__main__":
     with app.app_context():

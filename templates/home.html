@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Dashboard</title>	
+    <title>Home</title>	
     <link rel="stylesheet" href="/static/global.css" />   
     <link rel="stylesheet" href="/static/styles/layout.css" /> 
     <link rel="stylesheet" href="/static/styles/brand.css" />
@@ -10,16 +10,17 @@
     <link rel="stylesheet" href="/static/styles/tweet.css" />                  
   </head>
   <body>
-    <h2> Congratulations, Tweet Fun Day! </h2>
 	<a href="{{ url_for('logout') }}" > Press to logout </a>
     <br/> <br/>
     <div class="layout">
         <div class="layout__left-sidebar">
-			<img src="/static/images/twitter.png" class="brand"> <br/>           
+			    <img src="/static/images/twitter.png" class="brand"> <br/>           
             <div class="sidebar-menu">
 				<div class="sidebar-menu__item sidebar-menu__item--active">
-					<img src="/static/images/home.png" class="sidebar-menu__item-icon" />
-					Home
+          <a href="{{ url_for('home') }}">
+            <img src="/static/images/home.png" class="sidebar-menu__item-icon" />
+            <span>Home</span>
+          </a>
 				</div>
 				<div class="sidebar-menu__item sidebar-menu__item--active">
 					<img src="/static/images/explore.png" class="sidebar-menu__item-icon" />
@@ -38,8 +39,10 @@
 					Profile
 				</div>
 				<div class="sidebar-menu__item sidebar-menu__item--active">
-					<img src="/static/images/more.png" class="sidebar-menu__item-icon" />
-					More
+          <a href="{{ url_for('new_post') }}">
+            <img src="/static/images/more.png" class="sidebar-menu__item-icon" />
+            <span>Tweet</span>
+          </a>
 				</div>
 			</div>
         </div>
