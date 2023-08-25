@@ -75,6 +75,7 @@ class Post(db.Model):
 """ Routes Section """
 @app.route("/")
 def go_home():
+    posts = Post.query.all()
     return render_template("index.html")
 
 
