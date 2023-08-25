@@ -73,10 +73,6 @@ class Post(db.Model):
 
 
 """ Routes Section """
-
-tweets = []
-
-
 @app.route("/")
 def go_home():
     posts = Post.query.all()
@@ -98,7 +94,7 @@ def login():
 @app.route("/home", methods=['GET', 'POST'])
 @login_required
 def home():
-    return render_template("home.html", tweets=tweets)
+    return render_template("home.html")
 
 
 @app.route('/favicon.ico')
@@ -142,13 +138,9 @@ def new_post():
         return redirect(url_for('home'))
     return render_template('create_post.html', title='New Post', form=form)
 
-@app.route("/profile", methods=['GET', 'POST'])
+@app.route("/profile")
 @login_required
-def profile():
-    if request.method == 'POST':
-        tweet = request.form.get('tweet')
-        if tweet:
-            tweets.append(tweet)
+def profile():    
     return render_template('profile.html')
 
 
