@@ -211,4 +211,19 @@ span {
     margin-left: -10px;
     display: inline-flex;
     justify-content: space-evenly;
+    cursor: pointer;
+}
+
+.fa fa-heart {
+    cursor: pointer;
+}
+
+/* Define the active and hover states */
+#heart-button.active {
+    color: red; /* or any other color you want */
+}
+  
+#heart-button.hover {
+    transform: scale(1.2); /* or any other hover effect you want */
+    transition: transform 0.3s ease; /* add a smooth transition effect */
 }

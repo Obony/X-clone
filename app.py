@@ -2,7 +2,7 @@
 import os
 from datetime import datetime
 from flask import send_from_directory
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user
 from flask_login import LoginManager, login_required, current_user, logout_user
@@ -73,6 +73,10 @@ class Post(db.Model):
 
 
 """ Routes Section """
+
+tweets = []
+
+
 @app.route("/")
 def go_home():
     posts = Post.query.all()
@@ -94,7 +98,7 @@ def login():
 @app.route("/home", methods=['GET', 'POST'])
 @login_required
 def home():
-    return render_template("home.html")
+    return render_template("home.html", tweets=tweets)
 
 
 @app.route('/favicon.ico')
@@ -138,15 +142,14 @@ def new_post():
         return redirect(url_for('home'))
     return render_template('create_post.html', title='New Post', form=form)
 
-@app.route("/profile")
+@app.route("/profile", methods=['GET', 'POST'])
 @login_required
 def profile():
-    user_data = {
-        'name': 'Your name',
-        'bio': 'Bio goes here.',
-        'profile_pic': '/static/images/...'  # Path to your profile picture
-    }
-    return render_template('profile.html', user_data=user_data)
+    if request.method == 'POST':
+        tweet = request.form.get('tweet')
+        if tweet:
+            tweets.append(tweet)
+    return render_template('profile.html')
 
 
 if __name__ == "__main__":
