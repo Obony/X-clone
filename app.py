@@ -141,9 +141,9 @@ def new_post():
 @login_required
 def profile():
     user_data = {
-        'name': 'faith@faithoz',
+        'name': 'Your name',
         'bio': 'Bio goes here.',
-        'profile_pic': '/static/images/faith.jpg'  # Path to your profile picture
+        'profile_pic': '/static/images/...'  # Path to your profile picture
     }
     return render_template('profile.html', user_data=user_data)
 
