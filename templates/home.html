@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/static/styles/brand.css" />
     <link rel="stylesheet" href="/static/styles/sidebar-menu.css" />
     <link rel="stylesheet" href="/static/styles/trends-for-you.css" />
-    <link rel="stylesheet" href="/static/styles/tweet.css" />
+    <link rel="stylesheet" href="/static/styles/tweet.css" />    
   </head>
   <body>
     <div class="layout">
@@ -53,10 +53,148 @@
           </div>
             </div>
         <div class="layout__main">
-          <div>
-            {% for post in posts %}
-              {% include 'posts.html' %}
-            {% endfor %}
+          <div class="tweet">
+            <img class="tweet__author-logo" src="/static/images/faith.jpg" />
+            <div class="tweet__main">
+              <div class="tweet__header">
+                <div class="tweet__author-name">
+                  faith
+                </div>
+                <div class="tweet__author-slug">
+                  @faithoz
+                </div>
+                <div class="tweet__publish-time">
+                  2d
+                </div>
+              </div>
+              <div class="tweet__content">
+                Thank you, welcoming myself... <br/>
+                <br/>
+                <iframe width="560" height="315" src="/static/images/jericho.mp4" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="tweet">
+            <img class="tweet__author-logo" src="/static/images/apple.png" />
+            <div class="tweet__main">
+              <div class="tweet__header">
+                <div class="tweet__author-name">
+                  AppleStore
+                </div>
+                <div class="tweet__author-slug">
+                  @applestorekenya
+                </div>
+                <div class="tweet__publish-time">
+                  6h
+                </div>
+              </div>
+              <div class="tweet__content">
+                Get yourself the latest Iphone, airpods, ipads, imacs. Be the leader in tech as you are supposed to be, ahoy!!
+              </div>
+            </div>
+          </div>
+          <div class="tweet">
+            <img class="tweet__author-logo" src="/static/images/abiollaghcat.png" />
+            <div class="tweet__main">
+              <div class="tweet__header">
+                <div class="tweet__author-name">
+                  abiolla
+                </div>
+                <div class="tweet__author-slug">
+                  @abiollatheboss
+                </div>
+                <div class="tweet__publish-time">
+                  3min
+                </div>
+              </div>
+              <div class="tweet__content">
+                On this day today, 9th-August, Singapore became an independent nation after being expelled from Malaysia.
+                Malaysia's parliament had voted 126-0 in favour of the expulsion of Singapore from its federation.
+                <img class="tweet__image" src="/static/images/flag.jpg" />
+              </div>
+            </div>
+          </div>
+          <div class="tweet">
+            <img class="tweet__author-logo" src="/static/images/abiollaghcat.png" />
+            <div class="tweet__main">
+              <div class="tweet__header">
+                <div class="tweet__author-name">
+                  Elixir Digest
+                </div>
+                <div class="tweet__author-slug">
+                  @elixirdigest
+                </div>
+                <div class="tweet__publish-time">
+                  4d
+                </div>
+              </div>
+              <div class="tweet__content">
+                Yet Another Guide To Build a JSON API with Phoenix 1.5 shared in
+                the latest Elixir Digest
+                <a href="https://elixirdigest.net/digests/276"
+                  >https://elixirdigest.net/digests/276</a
+                >
+                @_tamas_soos #myelixirstatus #elixirlang #phoenixframework
+              </div>
+            </div>
+          </div>
+          <div class="tweet">
+            <img class="tweet__author-logo" src="/static/images/faith.jpg" />
+            <div class="tweet__main">
+              <div class="tweet__header">
+                <div class="tweet__author-name">
+                  faith
+                </div>
+                <div class="tweet__author-slug">
+                  @faithoz
+                </div>
+                <div class="tweet__publish-time">
+                  2d
+                </div>
+              </div>
+              <div class="tweet__content">
+                Thank you
+
+              </div>
+            </div>
+          </div>
+          <div class="tweet">
+            <img class="tweet__author-logo" src="/static/images/faith.jpg" />
+            <div class="tweet__main">
+              <div class="tweet__header">
+                <div class="tweet__author-name">
+                  faith
+                </div>
+                <div class="tweet__author-slug">
+                  @faithoz
+                </div>
+                <div class="tweet__publish-time">
+                  2d
+                </div>
+              </div>
+              <div class="tweet__content">
+                Merci beaucoup
+              </div>
+            </div>
+          </div>
+          <div class="tweet">
+            <img class="tweet__author-logo" src="/static/images/faith.jpg" />
+            <div class="tweet__main">
+              <div class="tweet__header">
+                <div class="tweet__author-name">
+                  faith
+                </div>
+                <div class="tweet__author-slug">
+                  @faithoz
+                </div>
+                <div class="tweet__publish-time">
+                  2d
+                </div>
+              </div>
+              <div class="tweet__content">
+                Wow, Lol!
+              </div>
+            </div>
           </div>
         </div>
         <div class="layout__right-sidebar-container">
@@ -101,5 +239,6 @@
             </div>
         </div>
     </div>
+    <script src="/static/script.js"></script>
   </body>
 </html>
