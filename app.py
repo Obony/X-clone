@@ -63,6 +63,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(250), nullable=False, unique=True)
     password = db.Column(db.String(250), nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default='abiollaghcat.png')
+    #bio = db.Column(db.String(300), nullable=True)
     posts = db.relationship('Post', backref='author', lazy=True)
 
 class Post(db.Model):
@@ -75,7 +76,6 @@ class Post(db.Model):
 """ Routes Section """
 @app.route("/")
 def go_home():
-    posts = Post.query.all()
     return render_template("index.html")
 
 
@@ -94,7 +94,8 @@ def login():
 @app.route("/home", methods=['GET', 'POST'])
 @login_required
 def home():
-    return render_template("home.html")
+    posts = Post.query.all()
+    return render_template("home.html", posts=posts)
 
 
 @app.route('/favicon.ico')

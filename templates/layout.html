@@ -1,60 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> X-Clone app </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <style>
-        body {
-            margin: 0px;
-            padding: 0px;
-            font-family: Arial, sans-serif;
-        }
-        .left-sidebar {
-            width: 280px;
-            margin-left: 30px;
-            color: black;
-            padding: 10px 0;
-            position: fixed;
-            height: 100%;
-            overflow-y: auto;
-            box-shadow: -1px 0 5px rgba(0, 0, 0, 0.1);
-        }
-        .right-sidebar {
-            width: 900px;
-            margin-right: 30px;
-            color: black;
-            padding: 10px 10px;
-            position: fixed;
-            height: 100%;
-            overflow-y: auto;
-            align-items: center;
-        }
-        .left-sidebar_header img {
-            width: 50px;
-            margin: 0 auto;
-            display: block;
-        }
-    </style>
-</head>
-<body> 
-    <!-- Left side bar -->
-    <div class="left-sidebar">
-        <div class="left-sidebar_header">
-            <img src="https://seeklogo.com/images/T/twitter-x-logo-101C7D2420-seeklogo.com.png?v=638258862800000000" alt="x-logo">
+<div class="tweet">
+    <!-- User Avatar -->
+    <img class="avatar" src="user-avatar.jpg" alt="User Avatar">
+    
+    <!-- Tweet Content -->
+    <div class="tweet-content">
+        <!-- Username and Timestamp -->
+        <div class="user-info">
+            <span class="username">John Doe</span>
+            <span class="timestamp">2h ago</span>
         </div>
-        <a class="nav-item nav-link" href="{{ url_for('go_home') }}">HOME </a>
-        <a class="nav-item nav-link" href="#"> SEARCH </a>
-        <a class="nav-item nav-link" href="{{ url_for('new_post') }}"> TWEET </a>
-        <a class="nav-item nav-link" href="{{ url_for('logout') }}"> LOGOUT </a>
+        
+        <!-- Tweet Text -->
+        <p class="tweet-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non velit eu libero aliquet posuere.
+        </p>
+        
+        <!-- Action Icons -->
+        <div class="action-icons">
+            <i class="far fa-comment"></i>
+            <i class="fas fa-retweet"></i>
+            <i class="far fa-heart"></i>
+        </div>
     </div>
-    <!-- Right side bar -->
-    <div class="right-sidebar">
-        <a class="nav-item nav-link" href="{{ url_for('go_home') }}">HOME </a>
-        <a class="nav-item nav-link" href="#"> SEARCH </a>
-        <a class="nav-item nav-link" href="{{ url_for('new_post') }}"> TWEET </a>
-        <a class="nav-item nav-link" href="{{ url_for('logout') }}"> LOGOUT </a>
+</div>
+
+
+<article class="media content-section">
+    <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2" href="#">{{ post.author.username }}</a>
+        <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+      </div>
+      <p class="article-content">{{ post.content }}</p>
     </div>
-</body>
-</html>
+  </article>
