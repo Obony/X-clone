@@ -1,5 +1,7 @@
 # X-Clone :dolphin:
 
+![tweet-tweet-twitter](https://github.com/Obony/X-Clone/assets/117737538/a376dd86-26d1-431d-89c7-8881dd6226ef)
+
 Made using the python framework Flask, this is a frontend + backend clone of twitter. Of course, it does not have ALL the functionalities Twitter has, but it can do the functions that are quintescential to Twitter, namely:
 
 1. Login and logout functionalities.
