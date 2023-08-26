@@ -75,7 +75,7 @@ class Post(db.Model):
 
 """ Routes Section """
 @app.route("/")
-def go_home():
+def go_home():    
     return render_template("index.html")
 
 
@@ -94,7 +94,8 @@ def login():
 @app.route("/home", methods=['GET', 'POST'])
 @login_required
 def home():
-    posts = Post.query.all()
+    posts = Post.query.all()  
+    posts = Post.query.order_by(Post.date_posted.desc()).all()  # Fetch tweets in descending order  
     return render_template("home.html", posts=posts)
 
 

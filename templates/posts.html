@@ -3,48 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-    .tweets {
-        display: flex;
-        padding: 10px;
-        border-bottom: 1px solid #e1e8ed;
-        display: inline-block;
-    }
-    .tweet-content {
-        align-items: center;
-        
-    }
-    .user-info {
-        display: flex;
-        align-items: center;
-        margin-bottom: 5px;
-    }
-    .username {
-        font-weight: bold;
-        margin-right: 5px;
-    }
-    .timestamp {
-        color: #657786;
-        font-size: 14px;
-    }
-    .tweet-text {
-        font-size: 16px;
-        margin-bottom: 10px;
-        display: inline-block;
-    }
-    </style>
+    <link rel='stylesheet' type='text/css' media='screen' href='/static/styles/tweet.css'>
 </head>
-<body>
+<body>    
     <div class="tweets">
-        <div class="tweet-content">
-            <!-- Username and Timestamp -->
-            <div class="user-info">
-                <span class="username"> {{ post.author.username }} </span>
-                <span class="timestamp"> {{ post.date_posted.strftime('%Y-%m-%d') }} </span>
+        <img class="tweet__author-logo" src="/static/images/faith.jpg" />
+        <div class="tweet__main">
+            <div class="tweet__header">
+              <div class="username">
+                {{ post.author.username }}
+              </div>              
+              <div class="timestamp">
+                {{ post.date_posted.strftime('%Y-%m-%d') }}                
+              </div>
             </div>
-            <!-- Tweet Content -->
-            <p class="tweet-text"> {{ post.content }} </p>
-        </div>
-    </div>
+            <div class="tweet__content">
+                <p class="tweet-text"> {{ post.content }} </p>
+            </div>              
+        </div>                          
+    </div>    
 </body>
 </html>
