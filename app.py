@@ -63,7 +63,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(250), nullable=False, unique=True)
     password = db.Column(db.String(250), nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default='abiollaghcat.png')
-    bio = db.Column(db.String(300), nullable=True)
+    # bio = db.Column(db.String(300), nullable=True)
     posts = db.relationship('Post', backref='author', lazy=True)
     comments = db.relationship('Comment', backref='user', passive_deletes=True)
     likes = db.relationship('Like', backref='user', passive_deletes=True)
