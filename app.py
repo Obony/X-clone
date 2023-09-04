@@ -18,7 +18,7 @@ app.config['SECRET_KEY'] = 'thisisasecretkey'
 """ initialize sql instance """
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
-
+Hello world
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
