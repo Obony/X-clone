@@ -41,3 +41,28 @@ margin-right: 10px;
 .tweet__header {
 display: flex;
 }
+.tweet {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  background-color: #fff;
+}
+
+.tweet-content {
+  font-size: 16px;
+}
+
+.tweet-buttons {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.tweet-buttons i {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.tweet-buttons span {
+  margin-right: 10px;
+}

@@ -19,8 +19,15 @@
             </div>
             <div class="tweet__content">
                 <p class="tweet-text"> {{ post.content }} </p>
+                <div class="tweet-buttons">
+                  <i class="fas fa-retweet"></i>
+                  <i class="far fa-heart" id="like-button-{{ post.id }}" onclick="like('{{ post.id }}')"></i>
+                  <span id="likes-count-{{ post.id }}">{{ post.likes|length }}</span>
+                  <i class="fas fa-comment"></i>
+                </div>
             </div>              
         </div>                          
-    </div>    
+    </div> 
+    <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>   
 </body>
 </html>
