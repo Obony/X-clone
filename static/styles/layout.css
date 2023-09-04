@@ -1,11 +1,14 @@
 .layout {
     display: grid;
-    grid-template-columns: 275px auto 350px;
+    grid-template-columns: 200px auto 350px;
     margin: 0 auto;
     max-width: 1200px;
   }
   
   .layout__right-sidebar {
-    position: fixed;
-    width: 350px;
+    position: flex;
+    width: 250px;
+    margin-left: 80px;
+    max-height: 100vh;
+
   }

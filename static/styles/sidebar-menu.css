@@ -1,10 +1,13 @@
 .sidebar-menu {
     position: fixed;
+    margin-left: 40px;
+    margin-top: 30px;
+    color: azure;
 }
 
 .sidebar-menu__item {
     font-size: 19px;
-    color: #0F141A;
+    color: azure;
     display: flex;
     align-items: center;
     font-weight: 700;
@@ -19,7 +22,7 @@
 }
 
 .sidebar-menu__item--active {
-    color: #1da0f2;
+    color: #afc9da;
 }
 
 .sidebar-menu__item-icon {

@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="/static/styles/trends-for-you.css" />
     <link rel="stylesheet" href="/static/styles/tweet.css" />
     <script src="https://kit.fontawesome.com/1073dd8a2a.js" crossorigin="anonymous"></script>
+    <style>
+      body {
+        background-color: rgb(9, 9, 27);
+        color: azure;
+      }
+    </style>
   </head>
   <body>
     <div class="layout">
@@ -52,20 +58,21 @@
               </a>
             </div>
           </div>
-            </div>
+        </div>
         <div class="layout__main">
           <div>
             {% for post in posts %}
-            <div>
-              <i class="fas fa-comment"></i>
-              <i class="far fa-heart" id="like-button-{{ post.id }}" onclick="like('{{post.id}}')"></i>
-              <span id="likes-count-{{post.id}}">
-                {{ post.likes|length }}
-              </span>
-              <i class="fas fa-share"></i>
-              <!-- <i class="fas fa-trash"></i> -->
-            </div>
+            
               {% include 'posts.html' %}
+              <div>
+                <i class="fas fa-comment"></i>
+                <i class="far fa-heart" id="like-button-{{ post.id }}" onclick="like('{{post.id}}')"></i>
+                <span id="likes-count-{{post.id}}">
+                  {{ post.likes|length }}
+                </span>
+                <i class="fas fa-share"></i>
+                <!-- <i class="fas fa-trash"></i> -->
+              </div>
             {% endfor %}
           </div>
         </div>
