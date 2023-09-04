@@ -2,7 +2,7 @@
 import os
 from datetime import datetime
 from flask import send_from_directory
-from flask import Flask, render_template, url_for, redirect, request
+from flask import Flask, render_template, url_for, redirect, request, flash, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user
 from flask_login import LoginManager, login_required, current_user, logout_user
@@ -63,15 +63,30 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(250), nullable=False, unique=True)
     password = db.Column(db.String(250), nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default='abiollaghcat.png')
-    #bio = db.Column(db.String(300), nullable=True)
+    bio = db.Column(db.String(300), nullable=True)
     posts = db.relationship('Post', backref='author', lazy=True)
+    comments = db.relationship('Comment', backref='user', passive_deletes=True)
+    likes = db.relationship('Like', backref='user', passive_deletes=True)
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     content = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    comments = db.relationship('Comment', backref='post', passive_deletes=True)
+    likes = db.relationship('Like', backref='post', passive_deletes=True)
 
+class Comment(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(300), nullable=False)
+    date_create = db.Column(db.DateTime, default=datetime.utcnow)
+    author = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'), nullable=False)
+    post_id = db.Column(db.Integer, db.ForeignKey('post.id', ondelete='CASCADE'), nullable=False)
+
+class Like(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    author = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'), nullable=False)
+    post_id = db.Column(db.Integer, db.ForeignKey('post.id', ondelete='CASCADE'), nullable=False)
 
 """ Routes Section """
 @app.route("/")
@@ -139,6 +154,38 @@ def new_post():
         db.session.commit()
         return redirect(url_for('home'))
     return render_template('create_post.html', title='New Post', form=form)
+
+@app.route("/like-post/<post_id>", methods=['GET', 'POST'])
+@login_required
+def like(post_id):
+    post = Post.query.filter_by(id=post_id).first()
+    like = Like.query.filter_by(author=current_user.id, post_id=post_id).first()
+
+    if not post:
+        flash("Doesn't exist!", category='error')
+    elif like:
+        db.session.delete(like)
+        db.session.commit()
+    else:
+        like = Like(author=current_user.id, post_id=post_id)
+        db.session.add(like)
+        db.session.commit()
+    return jsonify({"likes": len(post.likes), "liked": current_user.id in map(lambda x: x.author, post.likes)})
+
+@app.route("/delete-post/<id>")
+@login_required
+def delete_post(id):
+    post = Post.query.filter_by(id=id).first()
+
+    if not post:
+        flash("Doesn't exist", category='error')
+    elif current_user != post.id:
+        flash("You don't have permission to delete this post")
+    else:
+        db.session.delete(post)
+        db.session.commit()
+        flash("Post deleted")
+    return redirect(url_for('home'))
 
 @app.route("/profile")
 @login_required

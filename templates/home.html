@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/static/styles/sidebar-menu.css" />
     <link rel="stylesheet" href="/static/styles/trends-for-you.css" />
     <link rel="stylesheet" href="/static/styles/tweet.css" />
+    <script src="https://kit.fontawesome.com/1073dd8a2a.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="layout">
@@ -55,6 +56,15 @@
         <div class="layout__main">
           <div>
             {% for post in posts %}
+            <div>
+              <i class="fas fa-comment"></i>
+              <i class="far fa-heart" id="like-button-{{ post.id }}" onclick="like('{{post.id}}')"></i>
+              <span id="likes-count-{{post.id}}">
+                {{ post.likes|length }}
+              </span>
+              <i class="fas fa-share"></i>
+              <!-- <i class="fas fa-trash"></i> -->
+            </div>
               {% include 'posts.html' %}
             {% endfor %}
           </div>
@@ -101,5 +111,6 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
   </body>
 </html>
