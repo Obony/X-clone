@@ -20,10 +20,14 @@
             <div class="tweet__content">
                 <p class="tweet-text"> {{ post.content }} </p>
                 <div class="tweet-buttons">
-                  <i class="fas fa-retweet"></i>
+                  <i class="far fa-comment" id="comment"></i>
+                  <div id="text-area-container" style="display: none;">
+                    <textarea id="text-area" rows="4" cols="50"></textarea>
+                  </div>
                   <i class="far fa-heart" id="like-button-{{ post.id }}" onclick="like('{{ post.id }}')"></i>
                   <span id="likes-count-{{ post.id }}">{{ post.likes|length }}</span>
-                  <i class="fas fa-comment"></i>
+                  <i class="fas fa-retweet"></i>
+                  <i class="fas fa-ban" id="del"></i>
                 </div>
             </div>              
         </div>                          

@@ -53,7 +53,8 @@ display: flex;
 }
 
 .tweet-buttons {
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-left: 80px;
   display: flex;
   align-items: center;
 }
@@ -64,5 +65,11 @@ display: flex;
 }
 
 .tweet-buttons span {
-  margin-right: 10px;
+  margin-right: 80px;
+}
+#comment {
+  margin-right: 80px;
+}
+#del {
+  margin-left: 80px;
 }
