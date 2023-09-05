@@ -111,7 +111,7 @@ def login():
 def home():
     posts = Post.query.all()  
     posts = Post.query.order_by(Post.date_posted.desc()).all()  # Fetch tweets in descending order  
-    return render_template("home.html", posts=posts)
+    return render_template("home.html", posts=posts, user=current_user)
 
 
 @app.route('/favicon.ico')
@@ -172,19 +172,14 @@ def like(post_id):
         db.session.commit()
     return jsonify({"likes": len(post.likes), "liked": current_user.id in map(lambda x: x.author, post.likes)})
 
-@app.route("/delete-post/<id>")
+@app.route("/post/<int:post_id>/delete")
 @login_required
-def delete_post(id):
-    post = Post.query.filter_by(id=id).first()
-
-    if not post:
-        flash("Doesn't exist", category='error')
-    elif current_user != post.id:
-        flash("You don't have permission to delete this post")
-    else:
-        db.session.delete(post)
-        db.session.commit()
-        flash("Post deleted")
+def delete_post(post_id):
+    post = Post.query.get_or_404(post_id)
+    if post.author != current_user:
+        abort(403)
+    db.session.delete(post)
+    db.session.commit()
     return redirect(url_for('home'))
 
 @app.route("/profile")
