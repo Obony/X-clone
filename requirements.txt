@@ -63,7 +63,7 @@ paramiko==2.12.0
 pastel==0.2.1
 pathlib2==2.3.7.post1
 pexpect==4.8.0
-pip-tools==7.2.0
+pip-tools==6.14
 pkginfo==1.8.2
 platformdirs==3.8.1
 pluggy==1.2.0
