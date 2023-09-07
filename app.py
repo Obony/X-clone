@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 import os
 from datetime import datetime
-from flask import send_from_directory
-from flask import Flask, render_template, url_for, redirect, request, flash, jsonify
+from flask import Flask, render_template, url_for, redirect, send_from_directory, request, flash, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user
 from flask_login import LoginManager, login_required, current_user, logout_user
@@ -32,9 +31,13 @@ def load_user(user_id):
 """ Form/validations section """
 class SignupForm(FlaskForm):
     username = StringField(validators=[InputRequired(), Length(
-        min=4, max=20)], render_kw={"placeholder": "username"})
+        min=4, max=20)], render_kw={"placeholder": "Username"})
+    email = StringField(validators=[InputRequired(), Length(
+        min=4, max=200)], render_kw={"placeholder": "Email"})
+    phone = StringField(validators=[InputRequired(), Length(
+        min=4, max=20)], render_kw={"placeholder": "Phone"})
     password = PasswordField(validators=[InputRequired(), Length(
-        min=4, max=20)], render_kw={"placeholder": "password"})
+        min=4, max=20)], render_kw={"placeholder": "Password"})
     submit = SubmitField("Sign Up")
 
     """ Function that checks if username entered already exists """
@@ -49,7 +52,7 @@ class LoginForm(FlaskForm):
     username = StringField(validators=[InputRequired(), Length(
         min=4, max=20)], render_kw={"placeholder": "username"})
     password = PasswordField(validators=[InputRequired(), Length(
-        min=4, max=20)], render_kw={"placeholder": "password"})
+        min=4, max=20)], render_kw={"placeholder": "Password"})
     submit = SubmitField("Log in")
 
 class PostForm(FlaskForm):
@@ -90,10 +93,6 @@ class Like(db.Model):
 
 """ Routes Section """
 @app.route("/")
-def go_home():    
-    return render_template("index.html")
-
-
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     form = LoginForm()

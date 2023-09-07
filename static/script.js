@@ -13,18 +13,6 @@ function like(postId) {
       }
     });
 };
-
-function textDisplay() {
-  const icon = document.getElementById('comment');
-  const textAreaContainer = document.getElementById('text-area-container');
-  icon.addEventListener('click', () => {
-    if (textAreaContainer.style.display === 'none' || textAreaContainer.style.display === ''){
-      textAreaContainer.style.display = 'block';
-    } else {
-      textAreaContainer.style.display = 'none';
-    }
-  });
-}
 /*const heartButton = document.getElementById("heart-button");
 
 heartButton.addEventListener("click", function () {

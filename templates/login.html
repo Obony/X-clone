@@ -3,48 +3,100 @@
 	<head>
 		<title> Login </title>
 		<style>
-
 		  body {
 		     font-family: Arial, sans-serif;
-		     background-color: #f0f0f0;
 		     margin-top: 90px;
 		     padding: 0;
 		  }
 		  .container {
-			background-color: #1DA1F2;
-		     margin: 0 auto;
-		     display: flex;
-		     flex-direction: column;
-		     padding: 40px;
-		     border: 1px solid #ddd;
-		     border-radius: 5px;
-		     width: 60vh;
-		     height: 70vh;
-		     justify-content: center;
-		     align-items: center;
-		     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);			 
+			background-color: #fff;
+		    margin: 0 auto;
+		    padding: 30px;
+		    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+			border: 1px solid #ccc;
+		    border-radius: 5px;
+		    width: 50vh;
+		    height: 60vh;
+		    justify-content: center;
+		    align-items: center;	 
 		  }
-		  .content {
-		     width: 100%;
-		     height: 40px;
-		     margin-bottom: 50px;
+		  .container h4 {
+			font-size: xx-large;
+			font-weight: bolder;
+			text-align: center;
+			color: rgb(9, 9, 27);
+			font-family: 'Courier New', Courier, monospace;
+		  }
+		  .container p {
+			color: rgb(9, 9, 27);
+			font-size: 16px;
+			text-align: center;
+			margin-top: 30px;
+		  }
+		  .container a {
+			text-decoration: none;
+		  }
+		  .username {
+		     width: 80%;
+		     height: 35px;
+			 margin-left: 40px;
+			 border-radius: 10px;
+			 font-size: 17px;
+			 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			 font-variant: small-caps;
+			 transition: transform 0.3s;
+			 margin-bottom: 30px;
+		  }
+		  .username:hover {
+			transform: scale(1.1);
+			cursor: pointer;
+		  }
+		  .pass {
+		     width: 80%;
+		     height: 35px;
+			 margin-left: 40px;
+			 border-radius: 10px;
+			 font-size: 17px;
+			 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			 font-variant: small-caps;
+			 transition: transform 0.3s;
+			 margin-bottom: 30px;
+		  }
+		  .pass:hover {
+			transform: scale(1.1);
+			cursor: pointer;
+		  }
+		  .btn-submit {
+			align-items: center;
+			font-size: 18px;
+			font-weight: bold;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			width: 45%;
+			height: 40px;
+			border-radius: 5px;
+			border: 0;
+			color: #fff;
+			cursor: pointer;
+			background-color: rgb(9, 9, 27);
+			margin-left: 100px;
+			transition: background-color 0.3s, color 0.3s;
+		  }
+		  .btn-submit:hover {
+			background-color: aliceblue;
+			color: rgb(9, 9, 27);
+			border: 1px solid rgb(9, 9, 27);
 		  }
 		</style>
 	</head>
 	<body>
 		<div class="container">
+			<h4>X-Clone</h4>
 		  <form method="POST", action="">
-			<div class="content">
 			{{ form.hidden_tag() }}
-			{{ form.username }}
-			</div>
-			<div class="content">
-			{{ form.password }}
-			</div>
-			<div class="content">
-			{{ form.submit }}
-			</div>
-		  <a href="{{ url_for('signup') }}"> Don't have an account! Sign up </a>
+			{{ form.username(class="username") }}
+			{{ form.password(class="pass") }}
+			{{ form.submit(class="btn-submit") }}
+		  	<p> Don't have an account? <a href="{{ url_for('signup') }}"> Sign up </a></p>
 		  </form>
 		</div>
 	</body>
