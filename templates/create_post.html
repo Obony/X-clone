@@ -8,29 +8,47 @@
 		    font-family: Arial, sans-serif;
 		    background-color: #f0f0f0;
 		    margin-top: 90px;
+			margin-left: 80px;
 		    padding: 0;
+		  }	
+		  .content {
+			background-color: rgb(8, 5, 34);
+			color: antiquewhite;
+			width: 600px;
+			height: 300px;
+			border-radius: 10px;
+			text-align: justify;
+			transition: transform 0.3s;
 		  }
-          #textarea textarea {
-            width: 700px;
-            height: 300px;
-            padding: 10px;
-            border: 1px solid olive;
-            font-size: 16px;
-          }		  
+		  .content:hover {
+			transform: scale(1.2);
+		  }
+		  .btn-submit {
+			background-color: rgb(8, 5, 34);
+			color: aquamarine;
+			font-size: large;
+			font-family: 'Courier New', Courier, monospace;
+			width: 120px;
+			height: 40px;
+			margin-top: 30px;
+			border: 0;
+			border-radius: 6px;
+			transition: transform 0.3s;
+		  }
+		  .btn-submit:hover {
+			transform: scale(1.2);
+			background-color: white;
+			color: rgb(8, 5, 34);
+			border: 1px solid rgb(8, 5, 34);
+		  }
 		</style>
 	</head>
 	<body>
 		<div>
 		  <form method="POST", action="">
-			<div>
 			    {{ form.hidden_tag() }}
-            </div>
-            <div id="textarea">
-                {{ form.content }}
-            </div>
-			<div id="postbtn">
-			    {{ form.submit }}
-			</div>
+                {{ form.content(class="content") }}
+				<div>{{ form.submit(class="btn-submit") }}</div>
 		  </form>
 		</div>
 	</body>

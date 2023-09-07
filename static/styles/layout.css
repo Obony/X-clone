@@ -7,8 +7,7 @@
   
   .layout__right-sidebar {
     position: flex;
-    width: 250px;
+    width: 200px;
     margin-left: 80px;
     max-height: 100vh;
-
   }
