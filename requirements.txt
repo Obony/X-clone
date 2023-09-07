@@ -1,3 +1,4 @@
+pip==23.2.1
 appdirs==1.4.4
 attrs==23.1.0
 bcrypt==3.1.7
@@ -21,7 +22,6 @@ dbus-python==1.2.18
 decorator==4.4.2
 distlib==0.3.6
 distro==1.7.0
-distro-info===1.1build1
 exceptiongroup==1.1.2
 fabric==2.6.0
 Fabric3==1.14.post1
@@ -65,7 +65,6 @@ paramiko==2.12.0
 pastel==0.2.1
 pathlib2==2.3.7.post1
 pexpect==4.8.0
-pip==23.2.1
 pip-tools==7.2.0
 pkginfo==1.8.2
 platformdirs==3.8.1
