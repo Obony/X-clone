@@ -10,6 +10,7 @@ Made using the python framework Flask, this is a frontend + backend clone of twi
 4. Profile Page
 5. Tweet/Post page
 6. Deployment website used: Render.com : `http://x-clone-hywl.onrender.com`
+7. Landing page: `https://obony.github.io/`
 
 ## Screenshots
 
