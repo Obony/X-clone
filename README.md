@@ -35,7 +35,7 @@ Have tried to keep the UI as similiar as that of Twitter. Is not mobile responsi
     3. Make sure you have the right python version setup using Ubuntu. Install the dependencies using - `pip3 install -r requirements.txt`
     4. Start the server running @localhost:5000 using - `python3 app.py`
     5. To go back to terminal after running the above script, use `CTRL + C`
-    6. Feel free to use this deployment link of ours: `http://x-clone-hywl.onrender.com`
+    6. Deployment link of used: `http://x-clone-hywl.onrender.com`
 
 ## AUTHORS##
 
