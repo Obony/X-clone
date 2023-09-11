@@ -13,6 +13,8 @@ Made using the python framework Flask, this is a frontend + backend clone of twi
 7. Landing page: `https://obony.github.io/`
 8. Blog post: `https://www.linkedin.com/pulse/project-title-creating-vibrant-twitterx-clone-faith-nyaberi/`
 
+Main technical challenge as a bonus:
+`Brave browser` was mostly used for super flow of the project. `Chrome` had some little issues with freeze-ups but it can work well with some people.
 ## Screenshots
 
 Have tried to keep the UI as similiar as that of Twitter. Is not mobile responsive yet so is better to view it in landscape on laptop or desktop. The reason this hasn't been done yet is that this project's primary purpose was not to create a fronend site but rather create a fully functional generic social media website
