@@ -11,6 +11,7 @@ Made using the python framework Flask, this is a frontend + backend clone of twi
 5. Tweet/Post page
 6. Deployment website used: Render.com : `http://x-clone-hywl.onrender.com`
 7. Landing page: `https://obony.github.io/`
+8. Blog post: `https://www.linkedin.com/pulse/project-title-creating-vibrant-twitterx-clone-faith-nyaberi/`
 
 ## Screenshots
 
@@ -38,6 +39,7 @@ Have tried to keep the UI as similiar as that of Twitter. Is not mobile responsi
     4. Start the server running @localhost:5000 using - `python3 app.py`
     5. To go back to terminal after running the above script, use `CTRL + C`
     6. Deployment link used: `http://x-clone-hywl.onrender.com`
+    7. Blog post link: https://www.linkedin.com/pulse/project-title-creating-vibrant-twitterx-clone-faith-nyaberi/
 
 ## AUTHORS##
 
